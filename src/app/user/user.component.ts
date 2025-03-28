@@ -20,26 +20,13 @@ export class UserComponent implements OnInit {
   private subscription$!: Subscription;
   public users: any;
   public ngOnInit(): void {
-    // this.myService.getUsers().subscribe((users: any) => {
-    //   this.users = users;
-    // });
-
     this.users = this.myService.getUsers();
 
     this.subscription$ = interval(1000).subscribe((tick: number) => {
       console.log('Subscription is listening');
     });
-
-    // interval(1000)
-    //   .pipe(takeUntil(this.notifier))
-    //   .subscribe((x) => console.log(x));
-
-    //interval(1000).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(console.log);
   }
 
   public ngOnDestroy(): void {
-    //this.subscription$.unsubscribe();
-    // this.notifier.next(undefined);
-    // this.notifier.complete();
   }
 }
